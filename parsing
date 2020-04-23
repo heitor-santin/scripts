@@ -1,0 +1,13 @@
+#!/bin/bash
+
+wget $1
+clear
+
+cat index.html | grep href | cut -d "/" -f3 | grep "\." | grep -v '"' > sub
+for url in $(cat sub);
+do
+	host $url;
+	grep "has address"
+done
+
+
