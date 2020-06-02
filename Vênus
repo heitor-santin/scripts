@@ -1,0 +1,54 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import whois, nmap, socket, requests
+from bs4 import BeautifulSoup
+from datetime import datetime
+
+now = datetime.now()
+print('Seja bem vindo')
+print('Vênus --whois                consulta dados públicos')
+print('Vênus --nmap                 consulta as portas abertas e fechadas')
+print('Vênus --banner               faz a coleta de banner do site')
+print('Vênus --dbr                  pesquisa o banco de dados .br')
+print('')
+Venus = raw_input(':')
+
+if Venus == "Vênus --whois":
+	print('Site:')
+	dominio33 = raw_input('>')
+	consultaWhois = whois.whois(dominio33)
+	print consultaWhois.email
+	print consultaWhois['email']
+	print consultaWhois.text
+	print('')
+	print('Scan finalizado dia ' + str(now.day) + ' às ' + str(now.hour) + ':' + str(now.minute) + ':' + str(now.second))
+
+if Venus == "Vênus --nmap":
+	print('Ip:')
+	oip = raw_input('>')
+	scanNmap = nmap.PortScanner()
+	scanNmap.scan(oip, '21,22,23,12345,80,443,4444')
+	for host in scanNmap.all_hosts():
+    		print 'Nmap scan report for', host
+    		print 'Host is ', scanNmap[host]['status']['state']
+    		for protocolo in scanNmap[host].all_protocols():
+        		print "PORT\tSTATE\tSERVICE"
+        		for porta in scanNmap[host][protocolo]:
+            			alvo = scanNmap[host][protocolo][porta]
+            			print str(porta) + '/' + protocolo + '\t' + \
+           			alvo['state'] + '\t' + alvo['name']
+	print('')
+	print('Scan finalizado dia ' + str(now.day) + ' às ' + str(now.hour) + ':' + str(now.minute) + ':' + str(now.second))
+
+if Venus == "Vênus --banner":
+	print('Site:')
+	host = raw_input('>')
+	print('')
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	sock.connect((host, 80))
+	sock.send('HEAD /HTTP /1.1\r\nHost:%s\r\n\r\n' %host)
+	print sock.recv(1024)
+	print('')
+	print('Scan finalizado dia ' + str(now.day) + ' às ' + str(now.hour) + ':' + str(now.minute) + ':' + str(now.second))
+
